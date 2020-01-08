@@ -1,14 +1,20 @@
-export const ApplicationName = 'ReactSpa';
+import { config } from '../../config';
+
+export const ApplicationName = document.baseURI
+  .replace(/\//g, '')
+  .replace(/:/g, '')
+  .split('.')
+  .join('');
 
 export const QueryParameterNames = {
   ReturnUrl: 'returnUrl',
-  Message: 'message'
+  Message: 'message',
 };
 
 export const LogoutActions = {
   LogoutCallback: 'logout-callback',
   Logout: 'logout',
-  LoggedOut: 'logged-out'
+  LoggedOut: 'logged-out',
 };
 
 export const LoginActions = {
@@ -16,14 +22,14 @@ export const LoginActions = {
   LoginCallback: 'login-callback',
   LoginFailed: 'login-failed',
   Profile: 'profile',
-  Register: 'register'
+  Register: 'register',
 };
 
 const prefix = '/authentication';
 
 export const ApplicationPaths = {
   DefaultLoginRedirectPath: '/',
-  ApiAuthorizationClientConfigurationUrl: `/_configuration/${ApplicationName}`,
+  ApiAuthorizationClientConfigurationUrl: `${config.stsUrl}/_configuration/${ApplicationName}`,
   ApiAuthorizationPrefix: prefix,
   Login: `${prefix}/${LoginActions.Login}`,
   LoginFailed: `${prefix}/${LoginActions.LoginFailed}`,
@@ -34,5 +40,5 @@ export const ApplicationPaths = {
   LoggedOut: `${prefix}/${LogoutActions.LoggedOut}`,
   LogOutCallback: `${prefix}/${LogoutActions.LogoutCallback}`,
   IdentityRegisterPath: '/Identity/Account/Register',
-  IdentityManagePath: '/Identity/Account/Manage'
+  IdentityManagePath: '/Identity/Account/Manage',
 };
