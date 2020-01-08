@@ -1,3 +1,15 @@
+Hosted Targets:
+
+- [Firebase](https://rctspa.web.app/)
+- [Now](https://reactspa.now.sh/)
+- [Github](https://asadsahi.github.io/reactspa/)
+- [Heroku](https://rctspa.herokuapp.com/)
+- [Azure](https://rctspa.azurewebsites.net)
+- [Netlify](https://rctspa.netlify.com/)
+- [OnRender](https://reactspa.onrender.com/)
+- [Surge](https://reactspa.surge.sh/)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

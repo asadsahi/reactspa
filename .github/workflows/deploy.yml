@@ -6,8 +6,8 @@ on:
       - master
 
 env:
-  AZURE_WEBAPP_NAME: ngspa # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: './dist' # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_NAME: rctspa # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: './build' # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '12.x' # set this to the node version to use
 
 jobs:
@@ -29,8 +29,8 @@ jobs:
       - name: Archive Artifact
         uses: actions/upload-artifact@master
         with:
-          name: dist
-          path: dist
+          name: build
+          path: build
 
       # AZURE
       - name: Azure
@@ -52,12 +52,12 @@ jobs:
       - name: Surge
         run: |
           npm install -g surge
-          surge ./dist ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+          surge ./build ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
 
       # GITHUB PAGES
       - name: Github Pages
         run: |
-          npm run build -- --output-path build --base-href /angularspa/
+          npm run build:gh
           cp build/index.html build/404.html
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v2
