@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+
 import authService from './AuthorizeService';
 import { ApplicationPaths } from './ApiAuthorizationConstants';
 
@@ -54,6 +57,7 @@ export class LoginMenu extends Component {
         </NavItem>
         <NavItem>
           <NavLink tag={Link} className="text-dark" to={logoutPath}>
+            <FontAwesomeIcon icon={faSignOutAlt} />
             Logout
           </NavLink>
         </NavItem>
@@ -71,6 +75,7 @@ export class LoginMenu extends Component {
         </NavItem>
         <NavItem>
           <NavLink tag={Link} className="text-dark" to={loginPath}>
+            <FontAwesomeIcon icon={faSignInAlt} />
             Login
           </NavLink>
         </NavItem>
